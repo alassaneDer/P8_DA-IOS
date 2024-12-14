@@ -25,6 +25,11 @@ struct UserDataView: View {
             Spacer()
         }
         .edgesIgnoringSafeArea(.all)
+        .overlay {
+            if !viewModel.message.isEmpty {
+                ToastView(message: viewModel.message)
+            }
+        }
     }
 }
 

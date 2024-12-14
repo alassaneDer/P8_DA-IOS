@@ -12,13 +12,13 @@ struct AddExerciseView: View {
     @ObservedObject var viewModel: AddExerciseViewModel
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Form {
                     TextField("Catégorie", text: $viewModel.category)
-                    TextField("Heure de démarrage", text: $viewModel.startTime)
-                    TextField("Durée (en minutes)", text: $viewModel.duration)
-                    TextField("Intensité (0 à 10)", text: $viewModel.intensity)
+                    TextField("Heure de démarrage", text: $viewModel.startTimeSTring)
+                    TextField("Durée (en minutes)", text: $viewModel.durationString)
+                    TextField("Intensité (0 à 10)", text: $viewModel.intensityString)
                 }.formStyle(.grouped)
                 Spacer()
                 Button("Ajouter l'exercice") {
@@ -29,7 +29,11 @@ struct AddExerciseView: View {
                     
             }
             .navigationTitle("Nouvel Exercice ...")
-            
+            .overlay(content: {
+                if !viewModel.message.isEmpty {
+                    ToastView(message: viewModel.message)
+                }
+            })
         }
     }
 }

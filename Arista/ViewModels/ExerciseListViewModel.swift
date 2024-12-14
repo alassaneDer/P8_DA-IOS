@@ -10,26 +10,35 @@ import Foundation
 import CoreData
 
 class ExerciseListViewModel: ObservableObject {
-    @Published var exercises = [FakeExercise]()
+    @Published var exercises = [Exercise]()
+    @Published var message: String = ""
 
     var viewContext: NSManagedObjectContext
+    private let toastUtility: ToastUtility
 
-    init(context: NSManagedObjectContext) {
+    init(context: NSManagedObjectContext, toastUtility: ToastUtility = ToastUtility()) {
         self.viewContext = context
+        self.toastUtility = toastUtility
         fetchExercises()
     }
 
     private func fetchExercises() {
-        // TODO: fetch data in CoreData and replace dumb value below with appropriate information
-        exercises = [FakeExercise(), FakeExercise(), FakeExercise()]
+        do {
+            let data = ExerciceRepository(viewContext: viewContext)
+            exercises = try data.getExercise()
+        }
+        catch {
+            message = "Sorry can't load exercises, please try later!"
+        }
     }
-}
-
-struct FakeExercise: Identifiable {
-    var id = UUID()
     
-    var category: String = "Football"
-    var duration: Int = 120
-    var intensity: Int = 8
-    var date: Date = Date()
+    func reload() {
+        fetchExercises()
+    }
+    
+    func showTemporaryToast() {
+        toastUtility.showTemporaryToast(after: 5) {
+            self.message = ""
+        }
+    }
 }

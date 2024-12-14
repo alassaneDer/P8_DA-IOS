@@ -13,14 +13,19 @@ struct SleepHistoryView: View {
         var body: some View {
             List(viewModel.sleepSessions) { session in
                 HStack {
-                    QualityIndicator(quality: session.quality)
+                    QualityIndicator(quality: Int(session.quality))
                         .padding()
                     VStack(alignment: .leading) {
-                        Text("Début : \(session.startDate.formatted())")
+                        Text("Début : \(session.startDate!.formatted())")
                         Text("Durée : \(session.duration/60) heures")
                     }
                 }
             }
+            .overlay(content: {
+                if !viewModel.message.isEmpty {
+                    ToastView(message: viewModel.message)
+                }
+            })
             .navigationTitle("Historique de Sommeil")
         }
 }

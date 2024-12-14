@@ -12,21 +12,21 @@ struct ExerciseListView: View {
     @State private var showingAddExerciseView = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             List(viewModel.exercises) { exercise in
                 HStack {
-                    Image(systemName: iconForCategory(exercise.category))
+                    Image(systemName: iconForCategory(exercise.category!))
                     VStack(alignment: .leading) {
-                        Text(exercise.category)
+                        Text(exercise.category!)
                             .font(.headline)
                         Text("Durée: \(exercise.duration) min")
                             .font(.subheadline)
-                        Text(exercise.date.formatted())
+                        Text(exercise.startDate!.formatted())
                             .font(.subheadline)
                         
                     }
                     Spacer()
-                    IntensityIndicator(intensity: exercise.intensity)
+                    IntensityIndicator(intensity: Int(exercise.intensity))
                 }
             }
             .navigationTitle("Exercices")
@@ -36,7 +36,14 @@ struct ExerciseListView: View {
                 Image(systemName: "plus")
             })
         }
-        .sheet(isPresented: $showingAddExerciseView) {
+        .overlay(content: {
+            if !viewModel.message.isEmpty {
+                ToastView(message: viewModel.message)
+            }
+        })
+        .sheet(isPresented: $showingAddExerciseView, onDismiss: {
+            viewModel.reload()
+        }) {
             AddExerciseView(viewModel: AddExerciseViewModel(context: viewModel.viewContext))
         }
         
