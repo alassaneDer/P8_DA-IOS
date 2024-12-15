@@ -40,22 +40,22 @@ struct DefaultData {
                 
                 sleep2.duration = (0...900).randomElement()!
                 sleep2.quality = (0...10).randomElement()!
-                sleep2.startDate = Date(timeIntervalSinceNow: timeIntervalForDay * 5)
+                sleep2.startDate = Date(timeIntervalSinceNow: timeIntervalForDay * 4)
                 sleep2.user = initialUser
                 
                 sleep3.duration = (0...900).randomElement()!
                 sleep3.quality = (0...10).randomElement()!
-                sleep3.startDate = Date(timeIntervalSinceNow: timeIntervalForDay * 5)
+                sleep3.startDate = Date(timeIntervalSinceNow: timeIntervalForDay * 3)
                 sleep3.user = initialUser
                 
                 sleep4.duration = (0...900).randomElement()!
                 sleep4.quality = (0...10).randomElement()!
-                sleep4.startDate = Date(timeIntervalSinceNow: timeIntervalForDay * 5)
+                sleep4.startDate = Date(timeIntervalSinceNow: timeIntervalForDay * 2)
                 sleep4.user = initialUser
                 
                 sleep5.duration = (0...900).randomElement()!
                 sleep5.quality = (0...10).randomElement()!
-                sleep5.startDate = Date(timeIntervalSinceNow: timeIntervalForDay * 5)
+                sleep5.startDate = Date(timeIntervalSinceNow: timeIntervalForDay)
                 sleep5.user = initialUser
             }
             

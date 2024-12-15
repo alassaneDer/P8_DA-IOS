@@ -27,7 +27,7 @@ class SleepHistoryViewModel: ObservableObject {
             sleepSessions = try data.getSleepSessions()
         }
         catch {
-            message = "Sorry can't load exercises, please try later!"
+            message = "Sorry can't load sleep session now, please try later!"
         }
     }
     
