@@ -12,7 +12,12 @@ class UserDataViewModel: ObservableObject {
     @Published var firstName: String = ""
     @Published var lastName: String = ""
     @Published var message: String = ""
-
+    @Published var searchText: String = ""
+    
+    var issearching: Bool {
+        !searchText.isEmpty
+    }
+    
     private var viewContext: NSManagedObjectContext
     private let toastUtility: ToastUtility
 

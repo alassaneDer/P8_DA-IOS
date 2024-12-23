@@ -1,17 +1,19 @@
 //
-//  AddExerciseView.swift
+//  AddExerciceTestIdeas.swift
 //  Arista
 //
-//  Created by Vincent Saluzzo on 08/12/2023.
+//  Created by Alassane Der on 19/12/2024.
 //
 
 import SwiftUI
 
-struct AddExerciseView: View {
+struct AddExerciceTestIdeas: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: AddExerciseViewModel
     
     @State var color: Color = .red
+    @State var imageForCategory: [String] = ["Running", "Football", "Cyclisme", "Marche"]
+    @State var selectedCategory: String = "Running"
     
     var body: some View {
         NavigationStack {
@@ -24,21 +26,18 @@ struct AddExerciseView: View {
                         HStack {
                             ForEach(viewModel.imageForCategory, id: \.self) { image in
                                 VStack{
-                                    Button(action: {
-                                        withAnimation {
-                                            viewModel.selectedCategory = image
+                                    Image(image)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 90, height: 90)
+                                        .clipShape(Circle())
+                                        .onTapGesture {
+                                            withAnimation {
+                                                selectedCategory = image
+                                            }
                                         }
-                                    }, label: {
-                                        Image(image)
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 90, height: 90)
-                                            .clipShape(Circle())
-                                    })
-                                        
-                                    
                                     Text(image)
-                                        .foregroundStyle(viewModel.selectedCategory == image ? Color.blue : Color.gray)
+                                        .foregroundStyle(selectedCategory == image ? Color.blue : Color.gray)
                                     
                                 }
                             }
@@ -51,7 +50,7 @@ struct AddExerciseView: View {
                     HStack {
                         Text("Heure de démarrage")
                             .font(.headline)
-                        DatePicker("Sélectionner une heure", selection: $viewModel.startTime, displayedComponents: [.date, .hourAndMinute])
+                        DatePicker("Sélectionner une heure", selection: $viewModel.startTime, displayedComponents: [.hourAndMinute])
                             .labelsHidden()
                     }
                     
@@ -136,5 +135,5 @@ struct AddExerciseView: View {
 }
 
 #Preview {
-    AddExerciseView(viewModel: AddExerciseViewModel(context: PersistenceController.preview.container.viewContext))
+    AddExerciceTestIdeas(viewModel: AddExerciseViewModel(context: PersistenceController.preview.container.viewContext))
 }

@@ -13,14 +13,6 @@ import Combine
 final class SleepHistoryViewModelTests: XCTestCase {
     var cancellables = Set<AnyCancellable>()
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
     private func emptyEntities(context: NSManagedObjectContext) {
         let fetchRequest = Sleep.fetchRequest()
         let objects = try! context.fetch(fetchRequest)
@@ -46,14 +38,14 @@ final class SleepHistoryViewModelTests: XCTestCase {
         try! context.save()
     }
     
-    func test_WhenNoSleepSessionIsInDatabase_FetchSleepSessions_DoesNotReturnUser() throws {
+    func test_WhenNoSleepSessionIsInDatabase_FetchSleepSessions_DoesNotReturnSleepSession() throws {
         
         let persistenceController = PersistenceController(inMemory: true)
         emptyEntities(context: persistenceController.container.viewContext)
         
         let viewModel = SleepHistoryViewModel(context: persistenceController.container.viewContext)
         
-        let expectation = XCTestExpectation(description: "fetch empty list of exercises")
+        let expectation = XCTestExpectation(description: "fetch empty list of sleep sessions")
         
         viewModel.$sleepSessions
             .sink { exercises in
@@ -160,7 +152,7 @@ final class SleepHistoryViewModelTests: XCTestCase {
         let persistenceController = PersistenceController(inMemory: true)
         emptyEntities(context: persistenceController.container.viewContext)
         
-        var viewModel: SleepHistoryViewModel = SleepHistoryViewModel(context: persistenceController.container.viewContext)
+        let viewModel: SleepHistoryViewModel = SleepHistoryViewModel(context: persistenceController.container.viewContext)
         
         let expectation = self.expectation(description: "Toast message should be cleared after delay")
         
@@ -182,7 +174,7 @@ final class SleepHistoryViewModelTests: XCTestCase {
         let persistenceController = PersistenceController(inMemory: true)
         emptyEntities(context: persistenceController.container.viewContext)
         
-        var viewModel: SleepHistoryViewModel = SleepHistoryViewModel(context: persistenceController.container.viewContext)
+        let viewModel: SleepHistoryViewModel = SleepHistoryViewModel(context: persistenceController.container.viewContext)
         
         let expectation = self.expectation(description: "Toast message should be cleared after delay")
         

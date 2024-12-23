@@ -23,6 +23,14 @@ struct ExerciceRepository {
         return try viewContext.fetch(request)
     }
     
+    func getRecentExercices() throws -> [Exercise] {
+        let request = Exercise.fetchRequest()
+        request.fetchLimit = 5
+        request.sortDescriptors = [NSSortDescriptor(SortDescriptor<Exercise>(\.startDate, order: .reverse))]
+        
+        return try viewContext.fetch(request)
+    }
+    
     func addExercise(category: String, duration: Int, intensity: Int, startDate: Date) throws {
         let newExercise = Exercise(context: viewContext)
         newExercise.category = category

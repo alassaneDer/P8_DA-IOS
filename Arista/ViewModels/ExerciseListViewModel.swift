@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import CoreData
 
 class ExerciseListViewModel: ObservableObject {
@@ -41,4 +40,5 @@ class ExerciseListViewModel: ObservableObject {
             self.message = ""
         }
     }
+    
 }

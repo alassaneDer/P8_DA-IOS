@@ -22,4 +22,12 @@ struct SleepRepository {
         
         return try viewContext.fetch(request)
     }
+    
+    func getRecentSleepSessions() throws -> [Sleep] {
+        let request = Sleep.fetchRequest()
+        request.fetchLimit = 5
+        request.sortDescriptors = [NSSortDescriptor(SortDescriptor<Sleep>(\.startDate, order: .reverse))]
+        
+        return try viewContext.fetch(request)
+    }
 }

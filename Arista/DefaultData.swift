@@ -25,38 +25,16 @@ struct DefaultData {
             initialUser.lastName = "Razoul"
             
             if try sleepRepository.getSleepSessions().isEmpty {
-                let sleep1 = Sleep(context: viewContext)
-                let sleep2 = Sleep(context: viewContext)
-                let sleep3 = Sleep(context: viewContext)
-                let sleep4 = Sleep(context: viewContext)
-                let sleep5 = Sleep(context: viewContext)
-                
                 let timeIntervalForDay: TimeInterval = 60 * 60 * 24
-                
-                sleep1.duration = (0...900).randomElement()!
-                sleep1.quality = (0...10).randomElement()!
-                sleep1.startDate = Date(timeIntervalSinceNow: timeIntervalForDay * 5)
-                sleep1.user = initialUser
-                
-                sleep2.duration = (0...900).randomElement()!
-                sleep2.quality = (0...10).randomElement()!
-                sleep2.startDate = Date(timeIntervalSinceNow: timeIntervalForDay * 4)
-                sleep2.user = initialUser
-                
-                sleep3.duration = (0...900).randomElement()!
-                sleep3.quality = (0...10).randomElement()!
-                sleep3.startDate = Date(timeIntervalSinceNow: timeIntervalForDay * 3)
-                sleep3.user = initialUser
-                
-                sleep4.duration = (0...900).randomElement()!
-                sleep4.quality = (0...10).randomElement()!
-                sleep4.startDate = Date(timeIntervalSinceNow: timeIntervalForDay * 2)
-                sleep4.user = initialUser
-                
-                sleep5.duration = (0...900).randomElement()!
-                sleep5.quality = (0...10).randomElement()!
-                sleep5.startDate = Date(timeIntervalSinceNow: timeIntervalForDay)
-                sleep5.user = initialUser
+
+                for day in 1...30 {
+                    let sleep = Sleep(context: viewContext)
+                    sleep.duration = (15...500).randomElement()!
+                    sleep.quality = (0...10).randomElement()!
+                    sleep.startDate = Date(timeIntervalSinceNow: timeIntervalForDay * TimeInterval(day))
+                    sleep.user = initialUser
+                }
+               
             }
             
             try? viewContext.save()

@@ -43,19 +43,6 @@ struct QualityIndicator: View {
                 .foregroundColor(qualityColor(quality))
         }
     }
-
-    func qualityColor(_ quality: Int) -> Color {
-        switch (10-quality) {
-        case 0...3:
-            return .green
-        case 4...6:
-            return .yellow
-        case 7...10:
-            return .red
-        default:
-            return .gray
-        }
-    }
 }
 
 #Preview {

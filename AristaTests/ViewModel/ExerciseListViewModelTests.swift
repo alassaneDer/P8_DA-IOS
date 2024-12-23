@@ -166,7 +166,7 @@ final class ExerciseListViewModelTests: XCTestCase {
         let persistenceController = PersistenceController(inMemory: true)
         emptyEntities(context: persistenceController.container.viewContext)
         
-        var viewModel: ExerciseListViewModel = ExerciseListViewModel(context: persistenceController.container.viewContext)
+        let viewModel: ExerciseListViewModel = ExerciseListViewModel(context: persistenceController.container.viewContext)
         
         let expectation = self.expectation(description: "Toast message should be cleared after delay")
         
@@ -188,7 +188,7 @@ final class ExerciseListViewModelTests: XCTestCase {
         let persistenceController = PersistenceController(inMemory: true)
         emptyEntities(context: persistenceController.container.viewContext)
         
-        var viewModel: ExerciseListViewModel = ExerciseListViewModel(context: persistenceController.container.viewContext)
+        let viewModel: ExerciseListViewModel = ExerciseListViewModel(context: persistenceController.container.viewContext)
         
         let expectation = self.expectation(description: "Toast message should be cleared after delay")
         
