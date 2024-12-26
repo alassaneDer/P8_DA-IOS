@@ -25,9 +25,12 @@ class ExerciseListViewModel: ObservableObject {
         do {
             let data = ExerciceRepository(viewContext: viewContext)
             exercises = try data.getExercise()
+            if exercises.isEmpty {
+                self.message = "Vous n'avez pas encore renseigné d'exercices physiques."
+            }
         }
         catch {
-            message = "Sorry can't load exercises, please try later!"
+            self.message = "Nous ne parvenons pas à récupérer vos sessions de sommeils. Veuillez réessayer plutard!"
         }
     }
     

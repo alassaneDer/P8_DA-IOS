@@ -22,10 +22,16 @@
 		53E5876F2B236DBC00E4EF99 /* AddExerciseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E5876E2B236DBC00E4EF99 /* AddExerciseViewModel.swift */; };
 		53E587712B23714800E4EF99 /* SleepHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E587702B23714800E4EF99 /* SleepHistoryViewModel.swift */; };
 		ED40F8422D096EAD009CCA16 /* DefaultData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED40F8412D096EAD009CCA16 /* DefaultData.swift */; };
+		ED41C90D2D1AE4E900DDF791 /* PlusButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED41C90C2D1AE4E900DDF791 /* PlusButtonView.swift */; };
+		ED41C90F2D1AEDB600DDF791 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED41C90E2D1AEDB600DDF791 /* ErrorMessageView.swift */; };
+		ED41C9112D1AF7EB00DDF791 /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED41C9102D1AF7EB00DDF791 /* AddCategoryView.swift */; };
 		ED68422A2D15EFA100CFB0C4 /* SharedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6842292D15EFA100CFB0C4 /* SharedViewModel.swift */; };
 		ED6CD3592D0E723200BC1C50 /* UserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6CD3582D0E723200BC1C50 /* UserRepositoryTests.swift */; };
 		ED6CD35D2D0E86B000BC1C50 /* ExerciseListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6CD35C2D0E86B000BC1C50 /* ExerciseListViewModelTests.swift */; };
 		ED6CD35F2D0EC64100BC1C50 /* SleepHistoryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6CD35E2D0EC64100BC1C50 /* SleepHistoryViewModelTests.swift */; };
+		ED6EE6542D1C71930096826E /* ExerciseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6EE6532D1C71930096826E /* ExerciseRowView.swift */; };
+		ED6EE6562D1C79C40096826E /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6EE6552D1C79C40096826E /* FakeData.swift */; };
+		ED955EDC2D1D32250063B67A /* SleepHistoryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED955EDB2D1D32250063B67A /* SleepHistoryRowView.swift */; };
 		ED96721A2D071667008FDEA0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9672192D071667008FDEA0 /* User.swift */; };
 		ED96721C2D0716BF008FDEA0 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96721B2D0716BF008FDEA0 /* Exercise.swift */; };
 		ED96721E2D0716CE008FDEA0 /* Sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96721D2D0716CE008FDEA0 /* Sleep.swift */; };
@@ -40,7 +46,6 @@
 		EDB879152D17FFC80065C862 /* ColorForIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB879142D17FFC80065C862 /* ColorForIntensity.swift */; };
 		EDB879172D1800540065C862 /* QualityColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB879162D1800540065C862 /* QualityColor.swift */; };
 		EDC811662D0EE61D006CCDC1 /* UserDataViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC811652D0EE61D006CCDC1 /* UserDataViewModelTests.swift */; };
-		EDCA44E02D14317A00F499D0 /* AddExerciceTestIdeas.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCA44DF2D14317A00F499D0 /* AddExerciceTestIdeas.swift */; };
 		EDCC092E2D0D195E0016B280 /* ToastUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC092D2D0D195E0016B280 /* ToastUtility.swift */; };
 		EDCC09302D0D1CAE0016B280 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCC092F2D0D1CAE0016B280 /* ToastView.swift */; };
 /* End PBXBuildFile section */
@@ -81,10 +86,16 @@
 		53E5876E2B236DBC00E4EF99 /* AddExerciseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseViewModel.swift; sourceTree = "<group>"; };
 		53E587702B23714800E4EF99 /* SleepHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepHistoryViewModel.swift; sourceTree = "<group>"; };
 		ED40F8412D096EAD009CCA16 /* DefaultData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultData.swift; path = Arista/DefaultData.swift; sourceTree = SOURCE_ROOT; };
+		ED41C90C2D1AE4E900DDF791 /* PlusButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButtonView.swift; sourceTree = "<group>"; };
+		ED41C90E2D1AEDB600DDF791 /* ErrorMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageView.swift; sourceTree = "<group>"; };
+		ED41C9102D1AF7EB00DDF791 /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
 		ED6842292D15EFA100CFB0C4 /* SharedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViewModel.swift; sourceTree = "<group>"; };
 		ED6CD3582D0E723200BC1C50 /* UserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTests.swift; sourceTree = "<group>"; };
 		ED6CD35C2D0E86B000BC1C50 /* ExerciseListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListViewModelTests.swift; sourceTree = "<group>"; };
 		ED6CD35E2D0EC64100BC1C50 /* SleepHistoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepHistoryViewModelTests.swift; sourceTree = "<group>"; };
+		ED6EE6532D1C71930096826E /* ExerciseRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRowView.swift; sourceTree = "<group>"; };
+		ED6EE6552D1C79C40096826E /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FakeData.swift; path = Arista/Views/FakeData.swift; sourceTree = SOURCE_ROOT; };
+		ED955EDB2D1D32250063B67A /* SleepHistoryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepHistoryRowView.swift; sourceTree = "<group>"; };
 		ED9672192D071667008FDEA0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ED96721B2D0716BF008FDEA0 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		ED96721D2D0716CE008FDEA0 /* Sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sleep.swift; sourceTree = "<group>"; };
@@ -99,7 +110,6 @@
 		EDB879142D17FFC80065C862 /* ColorForIntensity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorForIntensity.swift; sourceTree = "<group>"; };
 		EDB879162D1800540065C862 /* QualityColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualityColor.swift; sourceTree = "<group>"; };
 		EDC811652D0EE61D006CCDC1 /* UserDataViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewModelTests.swift; sourceTree = "<group>"; };
-		EDCA44DF2D14317A00F499D0 /* AddExerciceTestIdeas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciceTestIdeas.swift; sourceTree = "<group>"; };
 		EDCC092D2D0D195E0016B280 /* ToastUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastUtility.swift; sourceTree = "<group>"; };
 		EDCC092F2D0D1CAE0016B280 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,6 +211,7 @@
 				ED9672212D072FE0008FDEA0 /* SleepRepository.swift */,
 				ED9672232D07319B008FDEA0 /* ExerciceRepository.swift */,
 				ED40F8412D096EAD009CCA16 /* DefaultData.swift */,
+				ED6EE6552D1C79C40096826E /* FakeData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,12 +219,10 @@
 		53E587602B235FD700E4EF99 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EDCC092F2D0D1CAE0016B280 /* ToastView.swift */,
 				53E587622B235FF600E4EF99 /* UserDataView.swift */,
-				53E587642B23600400E4EF99 /* ExerciseListView.swift */,
-				53E5876C2B236D9E00E4EF99 /* AddExerciseView.swift */,
-				53E587662B23600C00E4EF99 /* SleepHistoryView.swift */,
-				EDCA44DF2D14317A00F499D0 /* AddExerciceTestIdeas.swift */,
+				ED955EDD2D1D351F0063B67A /* ExerciseViews */,
+				ED955EDE2D1D354C0063B67A /* SleepViews */,
+				ED955EDF2D1D45270063B67A /* Helpers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -248,6 +257,36 @@
 				ED6CD35E2D0EC64100BC1C50 /* SleepHistoryViewModelTests.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ED955EDD2D1D351F0063B67A /* ExerciseViews */ = {
+			isa = PBXGroup;
+			children = (
+				53E587642B23600400E4EF99 /* ExerciseListView.swift */,
+				ED6EE6532D1C71930096826E /* ExerciseRowView.swift */,
+				53E5876C2B236D9E00E4EF99 /* AddExerciseView.swift */,
+				ED41C9102D1AF7EB00DDF791 /* AddCategoryView.swift */,
+			);
+			path = ExerciseViews;
+			sourceTree = "<group>";
+		};
+		ED955EDE2D1D354C0063B67A /* SleepViews */ = {
+			isa = PBXGroup;
+			children = (
+				53E587662B23600C00E4EF99 /* SleepHistoryView.swift */,
+				ED955EDB2D1D32250063B67A /* SleepHistoryRowView.swift */,
+			);
+			path = SleepViews;
+			sourceTree = "<group>";
+		};
+		ED955EDF2D1D45270063B67A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ED41C90E2D1AEDB600DDF791 /* ErrorMessageView.swift */,
+				ED41C90C2D1AE4E900DDF791 /* PlusButtonView.swift */,
+				EDCC092F2D0D1CAE0016B280 /* ToastView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		EDCC092C2D0D194E0016B280 /* Utils */ = {
@@ -398,24 +437,29 @@
 				53E587632B235FF600E4EF99 /* UserDataView.swift in Sources */,
 				53E587672B23600C00E4EF99 /* SleepHistoryView.swift in Sources */,
 				EDCC09302D0D1CAE0016B280 /* ToastView.swift in Sources */,
+				ED6EE6542D1C71930096826E /* ExerciseRowView.swift in Sources */,
 				53E587312B235E8F00E4EF99 /* AristaApp.swift in Sources */,
 				ED96721E2D0716CE008FDEA0 /* Sleep.swift in Sources */,
 				EDB879132D17FF240065C862 /* IntensityDescription.swift in Sources */,
 				EDB879172D1800540065C862 /* QualityColor.swift in Sources */,
 				53E587652B23600400E4EF99 /* ExerciseListView.swift in Sources */,
+				ED41C90F2D1AEDB600DDF791 /* ErrorMessageView.swift in Sources */,
 				ED96721C2D0716BF008FDEA0 /* Exercise.swift in Sources */,
 				ED9672202D072E4F008FDEA0 /* UserRepository.swift in Sources */,
+				ED41C9112D1AF7EB00DDF791 /* AddCategoryView.swift in Sources */,
 				EDB879152D17FFC80065C862 /* ColorForIntensity.swift in Sources */,
 				ED9672222D072FE0008FDEA0 /* SleepRepository.swift in Sources */,
 				53E5876B2B23648500E4EF99 /* ExerciseListViewModel.swift in Sources */,
-				EDCA44E02D14317A00F499D0 /* AddExerciceTestIdeas.swift in Sources */,
+				ED955EDC2D1D32250063B67A /* SleepHistoryRowView.swift in Sources */,
 				ED9672242D07319B008FDEA0 /* ExerciceRepository.swift in Sources */,
 				53E5873D2B235E9000E4EF99 /* Arista.xcdatamodeld in Sources */,
 				ED96721A2D071667008FDEA0 /* User.swift in Sources */,
 				53E5876D2B236D9E00E4EF99 /* AddExerciseView.swift in Sources */,
 				EDCC092E2D0D195E0016B280 /* ToastUtility.swift in Sources */,
+				ED6EE6562D1C79C40096826E /* FakeData.swift in Sources */,
 				ED40F8422D096EAD009CCA16 /* DefaultData.swift in Sources */,
 				53E5876F2B236DBC00E4EF99 /* AddExerciseViewModel.swift in Sources */,
+				ED41C90D2D1AE4E900DDF791 /* PlusButtonView.swift in Sources */,
 				53E587692B23616A00E4EF99 /* UserDataViewModel.swift in Sources */,
 				ED68422A2D15EFA100CFB0C4 /* SharedViewModel.swift in Sources */,
 			);

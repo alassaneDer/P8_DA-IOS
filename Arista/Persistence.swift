@@ -52,5 +52,9 @@ struct PersistenceController {
         if inMemory == false {
             try! DefaultData(viewContext: container.viewContext).apply()    // appel methode apply defauldata
         }
+        
+        if inMemory {
+            try! FakeData(viewContext: container.viewContext).apply()
+        }
     }
 }

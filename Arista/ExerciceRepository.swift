@@ -25,7 +25,7 @@ struct ExerciceRepository {
     
     func getRecentExercices() throws -> [Exercise] {
         let request = Exercise.fetchRequest()
-        request.fetchLimit = 5
+        request.fetchLimit = 7
         request.sortDescriptors = [NSSortDescriptor(SortDescriptor<Exercise>(\.startDate, order: .reverse))]
         
         return try viewContext.fetch(request)

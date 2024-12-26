@@ -25,9 +25,13 @@ class SleepHistoryViewModel: ObservableObject {
         do {
             let data = SleepRepository(viewContext: viewContext)
             sleepSessions = try data.getSleepSessions()
+            if sleepSessions.isEmpty {
+                self.message = "Vous n'avez pas encore de sessions de sommeil."
+            }
         }
         catch {
-            message = "Sorry can't load sleep session now, please try later!"
+            let errorMessage = "Nous ne parvenons pas à récupérer vos sessions de sommeils. Veuillez réessayer plutard!"
+            self.message = errorMessage.replacingOccurrences(of: ".", with: "/n")
         }
     }
     

@@ -51,34 +51,13 @@ struct UserDataView: View {
                                     Text(sharedViewModel.sleepMessage)
                                 } else {
                                     ForEach (sharedViewModel.recentSleepSessions, id: \.self) { session in
-                                        HStack {
-                                            QualityIndicator(quality: Int(session.quality))
-                                                .padding()
-                                            VStack(alignment: .leading) {
-                                                Text("Début : \(session.startDate!.formatted())")
-                                                Text("Durée : \(session.duration/60) heures")
-                                            }
-                                        }
+                                        SleepHistoryRowView(session: session)
                                     }
                                 }
                                 
-                                Button {
-                                    // add a new sleep session
-                                } label: {
-                                    VStack {
-                                        Image(systemName: "plus")
-                                            .foregroundStyle(Color.white)
-                                            .fontWeight(.bold)
-                                            .padding()
-                                            .background(Color.blue)
-                                            .frame(width: 20,height: 20)
-                                            .clipShape(Circle())
-                                        
-                                        Text("Ajouter")
-                                            .font(.caption)
-                                    }
+                                PlusButtonView {
+                                    // ajout de sommeil
                                 }
-                                .padding()
                             }
                         }
                     }
@@ -103,40 +82,15 @@ struct UserDataView: View {
                                     Text(sharedViewModel.exerciseMessage)
                                 } else {
                                     ForEach (sharedViewModel.recentExercises, id: \.self) { exercise in
-                                        HStack {
-                                            Image(systemName: iconForCategory(exercise.category!))
-                                            VStack(alignment: .leading) {
-                                                Text(exercise.category!)
-                                                    .font(.headline)
-                                                Text("Durée: \(exercise.duration) min")
-                                                    .font(.subheadline)
-                                                Text(exercise.startDate!.formatted())
-                                                    .font(.subheadline)
-                                            }
-                                            Spacer()
-                                            IntensityIndicator(intensity: Int(exercise.intensity))
-                                        }
+                                        ExerciseRowView(exercise: exercise)
                                         .padding()
                                     }
                                 }
                                 
-                                Button {
+                                PlusButtonView {
                                     showingAddExerciseView = true
-                                } label: {
-                                    VStack {
-                                        Image(systemName: "plus")
-                                            .foregroundStyle(Color.white)
-                                            .fontWeight(.bold)
-                                            .padding()
-                                            .background(Color.blue)
-                                            .frame(width: 20,height: 20)
-                                            .clipShape(Circle())
-                                        
-                                        Text("Ajouter")
-                                            .font(.caption)
-                                    }
+
                                 }
-                                .padding()
                             }
                         }
                     }
@@ -214,11 +168,6 @@ struct UserDataView: View {
                     .padding(.bottom, 10)
                 })
             }
-            .overlay {
-                if !viewModel.message.isEmpty {
-                    ToastView(message: viewModel.message)
-                }
-            }
         }
     }
 }
@@ -226,11 +175,3 @@ struct UserDataView: View {
 #Preview {
     UserDataView(viewModel: UserDataViewModel(context: PersistenceController.preview.container.viewContext), sharedViewModel: SharedViewModel(viewContext: PersistenceController.preview.container.viewContext))
 }
-
-
-/*
- .sheet(isPresented: $showingAddExerciseView) {
-     AddExerciseView(viewModel: AddExerciseViewModel(context: viewModel.viewContext)
-     )
- }
- */

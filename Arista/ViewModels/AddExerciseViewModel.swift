@@ -15,7 +15,7 @@ class AddExerciseViewModel: ObservableObject {
     @Published var intensity: Int = 0
     @Published var message: String = ""
     
-    @Published var imageForCategory: [String] = ["Running", "Football", "Cyclisme", "Marche"]
+    @Published var imageForCategory: [String] = ["Running", "Football", "Cyclisme", "Marche", "Natation"]
     @Published var selectedCategory: String = "Running"
     @Published var selectedHours: Int = 0
     @Published var selectedMinutes: Int = 0
