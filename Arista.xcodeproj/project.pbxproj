@@ -41,6 +41,7 @@
 		EDA0B4432D0DA68600BEC993 /* ExerciceRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA0B4422D0DA68600BEC993 /* ExerciceRepositoryTests.swift */; };
 		EDA0B4492D0DBFB500BEC993 /* AristaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA0B4482D0DBFB500BEC993 /* AristaUITests.swift */; };
 		EDA0B44B2D0DC8C200BEC993 /* SleepRepositorytests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA0B44A2D0DC8C200BEC993 /* SleepRepositorytests.swift */; };
+		EDA94F442D1EB15300297EAA /* SharedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA94F432D1EB15300297EAA /* SharedViewModelTests.swift */; };
 		EDB879102D17FC9B0065C862 /* IconForCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB8790F2D17FC9B0065C862 /* IconForCategory.swift */; };
 		EDB879132D17FF240065C862 /* IntensityDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB879122D17FF240065C862 /* IntensityDescription.swift */; };
 		EDB879152D17FFC80065C862 /* ColorForIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB879142D17FFC80065C862 /* ColorForIntensity.swift */; };
@@ -105,6 +106,7 @@
 		EDA0B4422D0DA68600BEC993 /* ExerciceRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciceRepositoryTests.swift; sourceTree = "<group>"; };
 		EDA0B4482D0DBFB500BEC993 /* AristaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AristaUITests.swift; sourceTree = "<group>"; };
 		EDA0B44A2D0DC8C200BEC993 /* SleepRepositorytests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepRepositorytests.swift; sourceTree = "<group>"; };
+		EDA94F432D1EB15300297EAA /* SharedViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedViewModelTests.swift; sourceTree = "<group>"; };
 		EDB8790F2D17FC9B0065C862 /* IconForCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconForCategory.swift; sourceTree = "<group>"; };
 		EDB879122D17FF240065C862 /* IntensityDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityDescription.swift; sourceTree = "<group>"; };
 		EDB879142D17FFC80065C862 /* ColorForIntensity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorForIntensity.swift; sourceTree = "<group>"; };
@@ -163,16 +165,13 @@
 		53E5872F2B235E8F00E4EF99 /* Arista */ = {
 			isa = PBXGroup;
 			children = (
+				53E5873B2B235E9000E4EF99 /* Arista.xcdatamodeld */,
+				ED955EE02D1D5A2A0063B67A /* CoreData */,
 				EDCC092C2D0D194E0016B280 /* Utils */,
 				53E5875F2B235FD200E4EF99 /* Models */,
 				53E587612B235FDC00E4EF99 /* ViewModels */,
 				53E587602B235FD700E4EF99 /* Views */,
 				53E587342B235E9000E4EF99 /* Assets.xcassets */,
-				53E587392B235E9000E4EF99 /* Persistence.swift */,
-				53E5873B2B235E9000E4EF99 /* Arista.xcdatamodeld */,
-				ED9672192D071667008FDEA0 /* User.swift */,
-				ED96721B2D0716BF008FDEA0 /* Exercise.swift */,
-				ED96721D2D0716CE008FDEA0 /* Sleep.swift */,
 				53E587362B235E9000E4EF99 /* Preview Content */,
 			);
 			path = Arista;
@@ -255,6 +254,7 @@
 				EDC811652D0EE61D006CCDC1 /* UserDataViewModelTests.swift */,
 				ED6CD35C2D0E86B000BC1C50 /* ExerciseListViewModelTests.swift */,
 				ED6CD35E2D0EC64100BC1C50 /* SleepHistoryViewModelTests.swift */,
+				EDA94F432D1EB15300297EAA /* SharedViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -287,6 +287,17 @@
 				EDCC092F2D0D1CAE0016B280 /* ToastView.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ED955EE02D1D5A2A0063B67A /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				ED96721D2D0716CE008FDEA0 /* Sleep.swift */,
+				ED96721B2D0716BF008FDEA0 /* Exercise.swift */,
+				ED9672192D071667008FDEA0 /* User.swift */,
+				53E587392B235E9000E4EF99 /* Persistence.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		EDCC092C2D0D194E0016B280 /* Utils */ = {
@@ -470,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED6CD35D2D0E86B000BC1C50 /* ExerciseListViewModelTests.swift in Sources */,
+				EDA94F442D1EB15300297EAA /* SharedViewModelTests.swift in Sources */,
 				EDC811662D0EE61D006CCDC1 /* UserDataViewModelTests.swift in Sources */,
 				EDA0B4432D0DA68600BEC993 /* ExerciceRepositoryTests.swift in Sources */,
 				ED6CD3592D0E723200BC1C50 /* UserRepositoryTests.swift in Sources */,

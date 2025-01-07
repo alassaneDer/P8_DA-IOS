@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class AddExerciseViewModel: ObservableObject {
+final class AddExerciseViewModel: ObservableObject {
     @Published var category: String = ""
     @Published var startTime: Date = Date()
     @Published var duration: Int = 0
@@ -21,7 +21,8 @@ class AddExerciseViewModel: ObservableObject {
     @Published var selectedMinutes: Int = 0
     @Published var maxHours = 12
     @Published var minutesRange = Array(1...60)
-    
+    @Published var isExerciseAddedSuccessfully: Bool = false
+
 
     private var viewContext: NSManagedObjectContext
     private let toastUtility: ToastUtility
@@ -40,16 +41,21 @@ class AddExerciseViewModel: ObservableObject {
         self.toastUtility = toastUtility
     }
 
-    func addExercise() -> Bool {
-        do {
-            self.category = selectedCategory
-            self.duration = totalDurationInMinutes()
-            try ExerciceRepository(viewContext: viewContext).addExercise(category: category, duration: duration, intensity: intensity, startDate: startTime)
-            return true
-        }
-        catch {
-            message = "Sorry can't add exercise, please try later!"
-            return false
+    func addExercise() {
+        if !category.isEmpty && duration != 0 && intensity != 0 {
+            do {
+                self.category = selectedCategory
+                self.duration = totalDurationInMinutes()
+                try ExerciceRepository(viewContext: viewContext).addExercise(category: category, duration: duration, intensity: intensity, startDate: startTime)
+                isExerciseAddedSuccessfully = false
+            }
+            catch {
+                message = "Impossible d'ajouter l'exercice, veuillez réessayer plutard."
+                isExerciseAddedSuccessfully = false
+            }
+        } else {
+            message = "Merci de remplir tout les champs."
+            isExerciseAddedSuccessfully = false
         }
     }
     

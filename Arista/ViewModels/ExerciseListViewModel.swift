@@ -8,16 +8,14 @@
 import Foundation
 import CoreData
 
-class ExerciseListViewModel: ObservableObject {
+final class ExerciseListViewModel: ObservableObject {
     @Published var exercises = [Exercise]()
     @Published var message: String = ""
 
     var viewContext: NSManagedObjectContext
-    private let toastUtility: ToastUtility
 
-    init(context: NSManagedObjectContext, toastUtility: ToastUtility = ToastUtility()) {
+    init(context: NSManagedObjectContext) {
         self.viewContext = context
-        self.toastUtility = toastUtility
         fetchExercises()
     }
 
@@ -36,12 +34,6 @@ class ExerciseListViewModel: ObservableObject {
     
     func reload() {
         fetchExercises()
-    }
-    
-    func showTemporaryToast() {
-        toastUtility.showTemporaryToast(after: 5) {
-            self.message = ""
-        }
     }
     
 }

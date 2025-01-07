@@ -121,7 +121,8 @@ struct AddExerciseView: View {
                 Spacer()
                 
                 Button("Ajouter l'exercice") {
-                    if viewModel.addExercise() {
+                    viewModel.addExercise()
+                    if viewModel.isExerciseAddedSuccessfully == true {
                         presentationMode.wrappedValue.dismiss()
                     }
                 }.buttonStyle(.borderedProminent)

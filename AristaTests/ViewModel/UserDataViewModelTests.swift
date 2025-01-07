@@ -10,8 +10,6 @@ import CoreData
 import Combine
 @testable import Arista
 
-#warning("ces tests doivent etre refaites : on fetch le user par defaut et non le user créé")
-
 final class UserDataViewModelTests: XCTestCase {
 
     var cancellables = Set<AnyCancellable>()
@@ -31,6 +29,8 @@ final class UserDataViewModelTests: XCTestCase {
         let newUser = User(context: context)
         newUser.firstName = firstName
         newUser.lastName = lastName
+        
+        try! context.save()
     }
     
     func test_WhenNoUserInDatabase_FetchUserData_ReturnDefautDataUser() {
@@ -51,7 +51,7 @@ final class UserDataViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
-    func test_WhenAddingUserInDatabase_FetchUserData_ReturnTheUser() {
+    func test_WhenAddingUserInDatabase_FetchUserData_ReturnTheDefaultUser() {
         let persistenceController = PersistenceController(inMemory: true)
         emptyEntities(context: persistenceController.container.viewContext)
         
@@ -72,13 +72,6 @@ final class UserDataViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
         
         
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }

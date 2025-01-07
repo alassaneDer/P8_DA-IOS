@@ -48,8 +48,8 @@ final class SleepHistoryViewModelTests: XCTestCase {
         let expectation = XCTestExpectation(description: "fetch empty list of sleep sessions")
         
         viewModel.$sleepSessions
-            .sink { exercises in
-                XCTAssert(exercises.isEmpty)
+            .sink { sleeps in
+                XCTAssert(sleeps.isEmpty)
                 expectation.fulfill()
             }
             .store(in: &cancellables)
@@ -57,7 +57,7 @@ final class SleepHistoryViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
-    func test_WhenAddingSleepSessionInDatabase_FetchSleepSessions_ReturnAListContainingTheSleepSession() {
+    func test_WhenAddingOneSleepSessionInDatabase_FetchSleepSessions_ReturnAListContainingTheSleepSession() {
         
         let persistenceController = PersistenceController(inMemory: true)
         emptyEntities(context: persistenceController.container.viewContext)
@@ -75,7 +75,7 @@ final class SleepHistoryViewModelTests: XCTestCase {
         
         let viewModel = SleepHistoryViewModel(context: persistenceController.container.viewContext)
         
-        let expectation = expectation(description: "fetch empty list of sleep session")
+        let expectation = expectation(description: "fetch list with one sleep session")
         
         viewModel.$sleepSessions
             .sink { sleepSession in
@@ -90,7 +90,7 @@ final class SleepHistoryViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
-    func test_WhenAddingMultipleExerciseInDatabase_FetchExercise_ReturnAListContainingTheExerciseInTheRightOrder() {
+    func test_WhenAddingMultipleExerciseInDatabase_FetchSleepSessions_ReturnAListContainingTheSleepSessionsInTheRightOrder() {
         
         let persistenceController = PersistenceController(inMemory: true)
         emptyEntities(context: persistenceController.container.viewContext)
@@ -127,7 +127,7 @@ final class SleepHistoryViewModelTests: XCTestCase {
         
         let viewModel = SleepHistoryViewModel(context: persistenceController.container.viewContext)
         
-        let expectation = expectation(description: "fetch empty list of sleep session")
+        let expectation = expectation(description: "fetch list of sleep sessions")
         
         viewModel.$sleepSessions
             .sink { sleepSessions in
@@ -141,61 +141,5 @@ final class SleepHistoryViewModelTests: XCTestCase {
         
         wait(for: [expectation], timeout: 10)
         
-    }
-    
-    
-    // MARK: showtemporary toast func tests
-    
-    func testShowTemporaryToast_mustDisplayMessage_untilTheDelayCompleted() {
-
-        
-        let persistenceController = PersistenceController(inMemory: true)
-        emptyEntities(context: persistenceController.container.viewContext)
-        
-        let viewModel: SleepHistoryViewModel = SleepHistoryViewModel(context: persistenceController.container.viewContext)
-        
-        let expectation = self.expectation(description: "Toast message should be cleared after delay")
-        
-        viewModel.message = "Hello, World!"
-
-        viewModel.showTemporaryToast()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.1) {
-                   XCTAssertEqual(viewModel.message, "Hello, World!", "The message should be cleared only after the delay")
-            expectation.fulfill()
-            }
-        
-        waitForExpectations(timeout: 6, handler: nil)
-
-    }
-    
-    func testShowTemporaryToast_mustClearMessage_ifTheDelayCompleted() {
-
-        let persistenceController = PersistenceController(inMemory: true)
-        emptyEntities(context: persistenceController.container.viewContext)
-        
-        let viewModel: SleepHistoryViewModel = SleepHistoryViewModel(context: persistenceController.container.viewContext)
-        
-        let expectation = self.expectation(description: "Toast message should be cleared after delay")
-        
-        viewModel.message = "Hello, World!"
-
-        viewModel.showTemporaryToast()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.1) {
-                   XCTAssertEqual(viewModel.message, "", "The message should be cleared only after the delay")
-            expectation.fulfill()
-            }
-        
-        waitForExpectations(timeout: 6, handler: nil)
-
-    }
-
-    
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 }

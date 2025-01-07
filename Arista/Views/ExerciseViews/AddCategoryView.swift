@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AddCategoryView: View {
     
-//    @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel: AddExerciseViewModel
     
     var body: some View {
@@ -19,12 +18,6 @@ struct AddCategoryView: View {
                     .padding()
                     .background(Color.gray.opacity(0.2))
                     .padding()
-
-//                Button(action: {
-//                    dismiss()
-//                }, label: {
-//                    Text("Ajouter")
-//                })
             }
         }
     }

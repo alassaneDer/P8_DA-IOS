@@ -14,7 +14,7 @@ struct AristaApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                UserDataView(viewModel: UserDataViewModel(context: persistenceController.container.viewContext), sharedViewModel: SharedViewModel(viewContext: persistenceController.container.viewContext))
+                UserDataView(userDataViewModel: UserDataViewModel(context: persistenceController.container.viewContext), sharedViewModel: SharedViewModel(viewContext: persistenceController.container.viewContext))
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
                     .tabItem {
                         Label("Utilisateur", systemImage: "person")

@@ -9,11 +9,9 @@ import SwiftUI
 import Charts
 
 struct UserDataView: View {
-    @ObservedObject var viewModel: UserDataViewModel
+    @ObservedObject var userDataViewModel: UserDataViewModel
     @ObservedObject var sharedViewModel: SharedViewModel
-    
-    @State private var showingAddExerciseView: Bool = false
-    
+        
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -24,7 +22,7 @@ struct UserDataView: View {
                         HStack {
                             Image(systemName: "magnifyingglass.circle.fill")
                                 .font(.title)
-                            TextField("Search candidates", text: $viewModel.searchText)
+                            TextField("Search candidates", text: $userDataViewModel.searchText)
                         }
                         .padding(10)
                         .frame(height: 45)
@@ -54,10 +52,6 @@ struct UserDataView: View {
                                         SleepHistoryRowView(session: session)
                                     }
                                 }
-                                
-                                PlusButtonView {
-                                    // ajout de sommeil
-                                }
                             }
                         }
                     }
@@ -65,7 +59,7 @@ struct UserDataView: View {
                 .padding()
                 
                 // MARK: Sleep chart
-
+                
                 
                 // MARK: last exercises
                 VStack(alignment: .leading) {
@@ -83,13 +77,8 @@ struct UserDataView: View {
                                 } else {
                                     ForEach (sharedViewModel.recentExercises, id: \.self) { exercise in
                                         ExerciseRowView(exercise: exercise)
-                                        .padding()
+                                            .padding()
                                     }
-                                }
-                                
-                                PlusButtonView {
-                                    showingAddExerciseView = true
-
                                 }
                             }
                         }
@@ -132,6 +121,10 @@ struct UserDataView: View {
                         .font(.subheadline)
                 }
             }
+            .onAppear(perform: {
+                sharedViewModel.fetchRecentExercices()
+                sharedViewModel.fetRecentSleepSession()
+            })
             .toolbar {
                 ToolbarItem(placement: .topBarLeading, content: {
                     HStack {
@@ -147,7 +140,7 @@ struct UserDataView: View {
                             Text("Bonjour")
                                 .font(.subheadline)
                             
-                            Text("\(viewModel.firstName) \(viewModel.lastName)")
+                            Text("\(userDataViewModel.firstName) \(userDataViewModel.lastName)")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.blue)
@@ -156,22 +149,11 @@ struct UserDataView: View {
                     }
                     .padding(.bottom, 10)
                 })
-                
-                ToolbarItem(placement: .topBarTrailing, content: {
-                    
-                    Button(action: {
-                        // parametres
-                    }, label: {
-                        Image(systemName: "gear")
-                            .foregroundStyle(Color.black)
-                    })
-                    .padding(.bottom, 10)
-                })
             }
         }
     }
 }
 
 #Preview {
-    UserDataView(viewModel: UserDataViewModel(context: PersistenceController.preview.container.viewContext), sharedViewModel: SharedViewModel(viewContext: PersistenceController.preview.container.viewContext))
+    UserDataView(userDataViewModel: UserDataViewModel(context: PersistenceController.preview.container.viewContext), sharedViewModel: SharedViewModel(viewContext: PersistenceController.preview.container.viewContext))
 }

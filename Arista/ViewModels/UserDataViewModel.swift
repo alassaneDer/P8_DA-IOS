@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class UserDataViewModel: ObservableObject {
+final class UserDataViewModel: ObservableObject {
     @Published var firstName: String = ""
     @Published var lastName: String = ""
     @Published var message: String = ""
@@ -37,12 +37,6 @@ class UserDataViewModel: ObservableObject {
         }
         catch {
             message = "Sorry user not founded!, please try later!"
-        }
-    }
-    
-    func showTemporaryToast() {
-        toastUtility.showTemporaryToast(after: 5) {
-            self.message = ""
         }
     }
 }

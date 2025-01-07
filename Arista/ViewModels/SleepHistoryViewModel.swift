@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class SleepHistoryViewModel: ObservableObject {
+final class SleepHistoryViewModel: ObservableObject {
     @Published var sleepSessions = [Sleep]()
     @Published var message: String = ""
     
@@ -30,14 +30,7 @@ class SleepHistoryViewModel: ObservableObject {
             }
         }
         catch {
-            let errorMessage = "Nous ne parvenons pas à récupérer vos sessions de sommeils. Veuillez réessayer plutard!"
-            self.message = errorMessage.replacingOccurrences(of: ".", with: "/n")
-        }
-    }
-    
-    func showTemporaryToast() {
-        toastUtility.showTemporaryToast(after: 5) {
-            self.message = ""
+            message = "Nous ne parvenons pas à récupérer vos sessions de sommeils. Veuillez réessayer plutard!"
         }
     }
 }

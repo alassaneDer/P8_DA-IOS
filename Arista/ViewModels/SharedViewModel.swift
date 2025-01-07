@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class SharedViewModel: ObservableObject {
+final class SharedViewModel: ObservableObject {
     @Published var recentExercises: [Exercise] = []
     @Published var recentSleepSessions: [Sleep] = []
     @Published var sleepMessage: String = ""
@@ -22,7 +22,7 @@ class SharedViewModel: ObservableObject {
         fetRecentSleepSession()
     }
     
-    private func fetchRecentExercices() {
+    func fetchRecentExercices() {
         do {
             let data = ExerciceRepository(viewContext: viewContext)
             recentExercises = try data.getRecentExercices()
@@ -35,7 +35,7 @@ class SharedViewModel: ObservableObject {
         }
     }
     
-    private func fetRecentSleepSession() {
+    func fetRecentSleepSession() {
         do {
             let data = SleepRepository(viewContext: viewContext)
             recentSleepSessions = try data.getRecentSleepSessions()
